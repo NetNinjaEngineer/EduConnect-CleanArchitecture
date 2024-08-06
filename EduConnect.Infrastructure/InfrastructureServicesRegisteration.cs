@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace EduConnect.Application
+namespace EduConnect.Infrastructure
 {
     public static class InfrastructureServicesRegisteration
     {

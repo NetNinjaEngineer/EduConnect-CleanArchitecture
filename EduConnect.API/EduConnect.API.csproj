@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EduConnect.Application\EduConnect.Application.csproj" />
+    <ProjectReference Include="..\EduConnect.Identity\EduConnect.Identity.csproj" />
+    <ProjectReference Include="..\EduConnect.Infrastructure\EduConnect.Infrastructure.csproj" />
     <ProjectReference Include="..\EduConnect.Persistence\EduConnect.Persistence.csproj" />
   </ItemGroup>
 

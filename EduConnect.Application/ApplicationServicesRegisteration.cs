@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace EduConnect.Application
 {
@@ -6,6 +7,11 @@ namespace EduConnect.Application
     {
         public static IServiceCollection AddApplicationPart(this IServiceCollection services)
         {
+            services.AddMediatR(options =>
+                options.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
             return services;
         }
     }

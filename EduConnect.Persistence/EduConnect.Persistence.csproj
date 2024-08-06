@@ -18,11 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EduConnect.Application\EduConnect.Application.csproj" />
     <ProjectReference Include="..\EduConnect.Domain\EduConnect.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
 
 </Project>
