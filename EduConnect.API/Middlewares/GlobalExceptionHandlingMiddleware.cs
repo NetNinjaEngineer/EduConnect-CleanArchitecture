@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text.Json;
 
-namespace EduConnect.API
+namespace EduConnect.API.Middlewares
 {
     public class GlobalExceptionHandlingMiddleware
     {

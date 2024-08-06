@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace EduConnect.API.Controllers
 {
-    [Route("api/topics")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TopicsController(IMediator mediator) : ControllerBase
     {

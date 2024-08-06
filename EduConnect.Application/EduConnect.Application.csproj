@@ -17,4 +17,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Courses\Handlers\Commands\" />
+    <Folder Include="Features\Courses\Requests\Commands\" />
+    <Folder Include="Features\Courses\Validators\" />
+  </ItemGroup>
+
 </Project>
