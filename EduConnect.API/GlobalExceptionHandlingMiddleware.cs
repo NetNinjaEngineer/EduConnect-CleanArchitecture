@@ -41,13 +41,14 @@ namespace EduConnect.API
                     break;
 
                 default:
+                    errorDetails = new((int)HttpStatusCode.InternalServerError, [ex.Message]);
                     break;
             }
 
             await context.Response.WriteAsync(errorDetails.ToString());
         }
 
-        internal sealed class ErrorDetails(int statusCode, IEnumerable<string> errors, string? description)
+        internal sealed class ErrorDetails(int statusCode, IEnumerable<string> errors, string? description = null)
         {
             public int StatusCode { get; set; } = statusCode;
             public IEnumerable<string> Errors { get; set; } = errors;

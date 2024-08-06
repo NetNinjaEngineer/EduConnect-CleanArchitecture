@@ -1,7 +1,7 @@
 ﻿using EduConnect.Domain.Entities.Common;
 using System.Linq.Expressions;
 
-namespace EduConnect.Domain.Specifications;
+namespace EduConnect.Application.Specifications;
 
 public interface ISpecification<T> where T : BaseEntity
 {

@@ -1,7 +1,7 @@
 ﻿using EduConnect.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace EduConnect.Domain.Specifications;
+namespace EduConnect.Application.Specifications;
 public static class SpecificationQueryEvaluator<T> where T : BaseEntity
 {
     public static IQueryable<T> GetQuery(

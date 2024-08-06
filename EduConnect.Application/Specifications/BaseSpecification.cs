@@ -1,11 +1,11 @@
 ﻿using EduConnect.Domain.Entities.Common;
 using System.Linq.Expressions;
 
-namespace EduConnect.Domain.Specifications;
+namespace EduConnect.Application.Specifications;
 public abstract class BaseSpecification<T> : ISpecification<T> where T : BaseEntity
 {
     public Expression<Func<T, bool>> Criteria { get; }
-    public List<Expression<Func<T, object>>> Includes { get; }
+    public List<Expression<Func<T, object>>> Includes { get; } = [];
 
     public Expression<Func<T, object>>? OrderBy { get; private set; }
 
