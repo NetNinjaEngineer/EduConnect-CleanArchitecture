@@ -2,7 +2,7 @@
 
 namespace EduConnect.Infrastructure
 {
-    public static class InfrastructureServicesRegisteration
+    public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructurePart(this IServiceCollection services)
         {

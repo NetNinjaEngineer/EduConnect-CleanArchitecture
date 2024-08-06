@@ -2,10 +2,11 @@
 using EduConnect.Application.Abstractions;
 using EduConnect.Application.Abstractions.Interfaces.Persistence;
 using EduConnect.Application.DTOs.Topic;
-using EduConnect.Domain;
+using EduConnect.Application.Features.Topics.Requests.Queries;
+using EduConnect.Domain.Entities;
 using MediatR;
 
-namespace EduConnect.Application.Features.Topics.Queries.GetAllTopics
+namespace EduConnect.Application.Features.Topics.Handlers.Queries
 {
     public sealed class GetAllTopicsQueryHandler(
         IMapper mapper,

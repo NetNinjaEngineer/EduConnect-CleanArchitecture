@@ -1,5 +1,5 @@
 ﻿using EduConnect.Application.Abstractions.Interfaces.Persistence;
-using EduConnect.Domain.Common;
+using EduConnect.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduConnect.Persistence.Repositories

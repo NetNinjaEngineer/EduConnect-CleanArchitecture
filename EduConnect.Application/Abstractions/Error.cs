@@ -1,10 +1,9 @@
 ﻿namespace EduConnect.Application.Abstractions
 {
-    public sealed class Error(string? errorMessage, string? code)
+    public sealed class Error(IEnumerable<string>? errors)
     {
-        public string? ErrorMessage { get; set; } = errorMessage;
-        public string? Code { get; set; } = code;
+        public IEnumerable<string>? ErrorMessage { get; set; } = errors;
 
-        public static Error None => new(null, null);
+        public static Error None => new(null);
     }
 }

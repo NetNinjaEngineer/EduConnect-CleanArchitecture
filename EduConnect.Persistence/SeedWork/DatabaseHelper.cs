@@ -1,4 +1,4 @@
-﻿using EduConnect.Domain;
+﻿using EduConnect.Domain.Entities;
 
 namespace EduConnect.Persistence.SeedWork
 {

@@ -1,4 +1,4 @@
-﻿using EduConnect.Domain;
+﻿using EduConnect.Domain.Entities;
 using EduConnect.Persistence.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

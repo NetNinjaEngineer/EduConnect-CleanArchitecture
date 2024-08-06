@@ -15,19 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{4E06CCE8-849B-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E6D799D8-103A-4594-BD6C-EB76FD0042A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.API", "EduConnect.API\EduConnect.API.csproj", "{95D1F96C-7216-4FE2-B120-C4423A1C0B67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.API", "EduConnect.API\EduConnect.API.csproj", "{95D1F96C-7216-4FE2-B120-C4423A1C0B67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Domain", "EduConnect.Domain\EduConnect.Domain.csproj", "{485E8767-7272-43F0-B020-BB987B83BB91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.Domain", "EduConnect.Domain\EduConnect.Domain.csproj", "{485E8767-7272-43F0-B020-BB987B83BB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Application", "EduConnect.Application\EduConnect.Application.csproj", "{DA62F8E1-EAAF-4231-BA4C-B707EAD89CA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.Application", "EduConnect.Application\EduConnect.Application.csproj", "{DA62F8E1-EAAF-4231-BA4C-B707EAD89CA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Identity", "EduConnect.Identity\EduConnect.Identity.csproj", "{46E2CC8B-17F8-4968-900D-781C589575D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.Identity", "EduConnect.Identity\EduConnect.Identity.csproj", "{46E2CC8B-17F8-4968-900D-781C589575D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Infrastructure", "EduConnect.Infrastructure\EduConnect.Infrastructure.csproj", "{16D1A72B-2131-48FF-BC62-4526F1E50D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.Infrastructure", "EduConnect.Infrastructure\EduConnect.Infrastructure.csproj", "{16D1A72B-2131-48FF-BC62-4526F1E50D52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Persistence", "EduConnect.Persistence\EduConnect.Persistence.csproj", "{0A12BFCF-3D67-49F8-9513-AC29B2818415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.Persistence", "EduConnect.Persistence\EduConnect.Persistence.csproj", "{0A12BFCF-3D67-49F8-9513-AC29B2818415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.MVC", "EduConnect.MVC\EduConnect.MVC.csproj", "{C3873AB6-0A24-48BE-989C-3CB23CD2EB36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduConnect.MVC", "EduConnect.MVC\EduConnect.MVC.csproj", "{C3873AB6-0A24-48BE-989C-3CB23CD2EB36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Service", "EduConnect.Service\EduConnect.Service.csproj", "{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{C3873AB6-0A24-48BE-989C-3CB23CD2EB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3873AB6-0A24-48BE-989C-3CB23CD2EB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3873AB6-0A24-48BE-989C-3CB23CD2EB36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{16D1A72B-2131-48FF-BC62-4526F1E50D52} = {E6D799D8-103A-4594-BD6C-EB76FD0042A2}
 		{0A12BFCF-3D67-49F8-9513-AC29B2818415} = {E6D799D8-103A-4594-BD6C-EB76FD0042A2}
 		{C3873AB6-0A24-48BE-989C-3CB23CD2EB36} = {4E06CCE8-849B-41C2-8522-BDA3AD5D6310}
+		{7EF9CCCE-7CA3-4823-A9DF-13E2230B0600} = {3B018629-AFA2-4DAC-8B09-7349F80015A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28B0AE57-18E9-4645-A9BB-B2A0AC74902F}

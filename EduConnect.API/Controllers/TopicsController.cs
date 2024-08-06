@@ -1,7 +1,7 @@
 ﻿using EduConnect.Application.Abstractions;
 using EduConnect.Application.DTOs.Topic;
-using EduConnect.Application.Features.Topics.Commands.CreateTopic;
-using EduConnect.Application.Features.Topics.Queries.GetAllTopics;
+using EduConnect.Application.Features.Topics.Requests.Commands;
+using EduConnect.Application.Features.Topics.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿using EduConnect.Domain.Common;
+﻿using EduConnect.Domain.Entities.Common;
 
 namespace EduConnect.Application.Abstractions.Interfaces.Persistence
 {

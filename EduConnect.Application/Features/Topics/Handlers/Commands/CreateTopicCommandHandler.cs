@@ -2,11 +2,13 @@
 using EduConnect.Application.Abstractions;
 using EduConnect.Application.Abstractions.Interfaces.Persistence;
 using EduConnect.Application.DTOs.Topic;
-using EduConnect.Domain;
+using EduConnect.Application.Features.Topics.Requests.Commands;
+using EduConnect.Application.Features.Topics.Validators;
+using EduConnect.Domain.Entities;
 using FluentValidation;
 using MediatR;
 
-namespace EduConnect.Application.Features.Topics.Commands.CreateTopic
+namespace EduConnect.Application.Features.Topics.Handlers.Commands
 {
     public sealed class CreateTopicCommandHandler(
         IMapper mapper,
@@ -24,7 +26,9 @@ namespace EduConnect.Application.Features.Topics.Commands.CreateTopic
 
             var mappedTopic = mapper.Map<Topic>(request.Topic);
             unitOfWork.Repository<Topic>()!.Create(mappedTopic);
+
             await unitOfWork.SaveAsync();
+
             return Result<TopicDto>.Success(mapper.Map<TopicDto>(mappedTopic));
         }
     }

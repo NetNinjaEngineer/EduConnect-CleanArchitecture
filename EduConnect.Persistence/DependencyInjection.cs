@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EduConnect.Persistence
 {
-    public static class PersistenceServicesRegisteration
+    public static class DependencyInjection
     {
         public static IServiceCollection AddPersistencePart(this IServiceCollection services, IConfiguration configuration)
         {

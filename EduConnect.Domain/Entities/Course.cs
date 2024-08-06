@@ -1,6 +1,6 @@
-﻿using EduConnect.Domain.Common;
+﻿using EduConnect.Domain.Entities.Common;
 
-namespace EduConnect.Domain
+namespace EduConnect.Domain.Entities
 {
     public class Course : BaseEntity
     {

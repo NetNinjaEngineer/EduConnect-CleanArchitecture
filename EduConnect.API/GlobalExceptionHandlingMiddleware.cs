@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using System.Net;
 using System.Text.Json;
 
 namespace EduConnect.API
@@ -29,12 +30,14 @@ namespace EduConnect.API
         private static async Task HandleExceptionAsync(Exception ex, HttpContext context)
         {
             context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             ErrorDetails errorDetails = default!;
             switch (ex)
             {
                 case ValidationException validationException:
+                    context.Response.StatusCode = (int)HttpStatusCode.UnprocessableEntity;
                     var errors = validationException.Errors.Select(x => x.ErrorMessage);
-                    errorDetails = new(422, errors, "Validation errors occured !!!");
+                    errorDetails = new((int)HttpStatusCode.UnprocessableEntity, errors, "Validation errors occured !!!");
                     break;
 
                 default:

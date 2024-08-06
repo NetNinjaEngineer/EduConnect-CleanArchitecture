@@ -1,4 +1,4 @@
-﻿namespace EduConnect.Domain.Common
+﻿namespace EduConnect.Domain.Entities.Common
 {
     public abstract class BaseEntity
     {
