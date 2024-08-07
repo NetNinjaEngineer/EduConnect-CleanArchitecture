@@ -9,5 +9,6 @@ public class TopicsProfile : Profile
     {
         CreateMap<Topic, TopicDto>();
         CreateMap<TopicForCreationDto, Topic>();
+        CreateMap<TopicForUpdateDto, Topic>();
     }
 }

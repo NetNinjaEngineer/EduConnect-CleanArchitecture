@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EduConnect.Application\EduConnect.Application.csproj" />
     <ProjectReference Include="..\EduConnect.Domain\EduConnect.Domain.csproj" />
+    <ProjectReference Include="..\EduConnect.Infrastructure\EduConnect.Infrastructure.csproj" />
   </ItemGroup>
 
 

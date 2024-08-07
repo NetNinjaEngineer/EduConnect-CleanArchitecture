@@ -1,10 +1,8 @@
 ﻿using EduConnect.Application.DTOs.Common;
 
 namespace EduConnect.Application.DTOs.Course;
-public record CourseDto : BaseDto
+public record CourseForListDto : BaseDto
 {
     public string? CourseName { get; set; }
     public int Duration { get; set; }
-    public Guid? TopicId { get; set; }
-    public string? TopicName { get; set; }
 }

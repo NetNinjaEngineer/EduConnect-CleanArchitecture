@@ -1,8 +1,9 @@
-﻿namespace EduConnect.Application.DTOs.Topic
+﻿using EduConnect.Application.DTOs.Common;
+
+namespace EduConnect.Application.DTOs.Topic
 {
-    public sealed record TopicDto
+    public sealed record TopicDto : BaseDto
     {
-        public Guid Id { get; set; }
         public string? TopicName { get; set; }
     }
 }

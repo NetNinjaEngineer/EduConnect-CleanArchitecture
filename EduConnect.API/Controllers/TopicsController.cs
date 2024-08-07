@@ -1,4 +1,5 @@
 ﻿using EduConnect.Application.Abstractions;
+using EduConnect.Application.Abstractions.Interfaces.Persistence.Models;
 using EduConnect.Application.DTOs.Topic;
 using EduConnect.Application.Features.Topics.Requests.Commands;
 using EduConnect.Application.Features.Topics.Requests.Queries;
@@ -21,13 +22,21 @@ namespace EduConnect.API.Controllers
             return Ok(topicsResult.Value);
         }
 
+        [HttpGet("{id:guid}", Name = "GetTopicByGuidId")]
+        [ProducesResponseType(typeof(IReadOnlyList<TopicDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<TopicDto>> GetTopic([FromRoute] Guid id)
+        {
+            return Ok(await mediator.Send(new GetTopicQuery(id)));
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(TopicDto), StatusCodes.Status201Created)]
         public async Task<ActionResult<IReadOnlyList<TopicDto>>> CreateNewTopic([FromBody] TopicForCreationDto model)
         {
             var createTopicCommand = new CreateTopicCommand { Topic = model };
             Result<TopicDto> createTopicResult = await mediator.Send(createTopicCommand);
-            return Accepted(createTopicResult.Value);
+            return CreatedAtRoute("GetTopicByGuidId", new { id = createTopicResult.Value.Id }, createTopicResult.Value);
         }
 
         [HttpGet]
@@ -42,6 +51,31 @@ namespace EduConnect.API.Controllers
             Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(pagedResult.Value.MetaData));
 
             return Ok(pagedResult.Value);
+        }
+
+        [HttpDelete("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<Unit>> DeleteTopic([FromRoute] Guid id)
+        {
+            await mediator.Send(new DeleteTopicCommand(id));
+            return NoContent();
+        }
+
+        [HttpGet]
+        [Route("topicWithRelatedCourses/{topicId:guid}")]
+        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCourses>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<IReadOnlyList<TopicWithRelatedCourses>>> TopicWithRelatedCourses([FromRoute] Guid topicId)
+        {
+            return Ok(await mediator.Send(new GetTopicWithRelatedCoursesQuery() { TopicId = topicId }));
+        }
+
+        [HttpPut("{id:guid}")]
+        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCourses>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<Unit>> UpdateTopic(Guid id, TopicForUpdateDto updateModel)
+        {
+            await mediator.Send(new UpdateTopicCommand(id, updateModel));
+            return NoContent();
         }
     }
 }

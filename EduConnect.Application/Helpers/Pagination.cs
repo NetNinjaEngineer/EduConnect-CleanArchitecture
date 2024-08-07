@@ -1,12 +1,12 @@
 ﻿namespace EduConnect.Application.Helpers;
 public class Pagination<T>
 {
-    public IReadOnlyList<T> Date { get; set; }
+    public IReadOnlyList<T> Data { get; set; }
     public PaginationMetaData MetaData { get; set; }
 
-    public Pagination(int pageNumber, int pageSize, int count, IReadOnlyList<T> date)
+    public Pagination(int pageNumber, int pageSize, int count, IReadOnlyList<T> data)
     {
-        Date = date;
+        Data = data;
         MetaData = new()
         {
             CurrentPage = pageNumber,

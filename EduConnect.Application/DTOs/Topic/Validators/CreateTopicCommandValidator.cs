@@ -1,7 +1,6 @@
-﻿using EduConnect.Application.DTOs.Topic;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace EduConnect.Application.Features.Topics.Validators
+namespace EduConnect.Application.DTOs.Topic.Validators
 {
     public class CreateTopicCommandValidator : AbstractValidator<TopicForCreationDto>
     {

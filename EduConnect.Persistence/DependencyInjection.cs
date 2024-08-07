@@ -16,6 +16,7 @@ namespace EduConnect.Persistence
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITopicRepository, TopicRepository>();
 
             return services;
 

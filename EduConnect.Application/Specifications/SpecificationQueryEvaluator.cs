@@ -10,6 +10,10 @@ public static class SpecificationQueryEvaluator<T> where T : BaseEntity
     {
         var query = inputQuery.AsQueryable();
 
+        if (specification.Includes is not null)
+            query = specification.Includes.Aggregate(query,
+                (currentQuery, includeExpression) => currentQuery.Include(includeExpression));
+
         if (specification.Criteria is not null)
             query = query.Where(specification.Criteria);
 
@@ -21,11 +25,6 @@ public static class SpecificationQueryEvaluator<T> where T : BaseEntity
 
         if (specification.IsPagingEnabled)
             query = query.Skip(specification.Skip).Take(specification.Take);
-
-
-        if (specification.Includes is not null)
-            query = specification.Includes.Aggregate(query,
-                (currentQuery, includeExpression) => currentQuery.Include(includeExpression));
 
         return query;
     }
