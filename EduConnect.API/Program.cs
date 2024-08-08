@@ -1,4 +1,3 @@
-using EduConnect.API.Extensions;
 using EduConnect.API.Middlewares;
 using EduConnect.Application;
 using EduConnect.Identity;
@@ -26,8 +25,7 @@ builder.Services
     .AddPersistencePart(builder.Configuration)
     .AddApplicationPart()
     .AddInfrastructurePart()
-    .AddIdentityPart()
-    .AddLocalizationOptions();
+    .AddIdentityPart();
 
 builder.Services.AddLocalization();
 
@@ -42,7 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseLocalization();
+app.UseLocalizationOptions();
 
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 

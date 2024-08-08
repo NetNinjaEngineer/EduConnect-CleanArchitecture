@@ -1,4 +1,4 @@
-﻿namespace EduConnect.Application.Resources;
+﻿namespace EduConnect.Application.Localization;
 
 public static class SharedResourcesKeys
 {

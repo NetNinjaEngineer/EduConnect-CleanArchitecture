@@ -1,0 +1,8 @@
+﻿{
+  "MaximumLength50": "{PropertyName} يجب ألا يتجاوز 50 حرفاً.",
+  "ResourceNotFound": "المورد غير موجود.",
+  "TopicNotFoundMessage": "لم يتم العثور على الموضوع ذو المعرف: '{0}'",
+  "ValidationErrors": "حدثت أخطاء في التحقق!!!",
+  "NotEmpty": "{PropertyName} لا يمكن أن يكون فارغاً.",
+  "NotNull": "{PropertyName} مطلوب."
+}

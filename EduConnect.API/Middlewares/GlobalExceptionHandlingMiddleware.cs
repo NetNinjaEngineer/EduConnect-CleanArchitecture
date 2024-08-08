@@ -1,5 +1,5 @@
 ﻿using EduConnect.Application.Exceptions;
-using EduConnect.Application.Resources;
+using EduConnect.Application.Localization;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 using System.Net;

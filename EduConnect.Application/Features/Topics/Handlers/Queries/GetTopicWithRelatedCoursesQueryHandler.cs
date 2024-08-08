@@ -2,7 +2,7 @@
 using EduConnect.Application.Abstractions.Interfaces.Persistence.Models;
 using EduConnect.Application.Exceptions;
 using EduConnect.Application.Features.Topics.Requests.Queries;
-using EduConnect.Application.Resources;
+using EduConnect.Application.Localization;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
