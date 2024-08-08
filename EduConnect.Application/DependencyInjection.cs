@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EduConnect.Application.DTOs.Topic.Validators;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace EduConnect.Application
@@ -9,8 +11,9 @@ namespace EduConnect.Application
         {
             services.AddMediatR(options =>
                 options.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssemblyContaining<CreateTopicCommandValidator>();
+
 
             return services;
         }

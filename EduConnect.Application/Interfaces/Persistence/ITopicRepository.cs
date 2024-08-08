@@ -4,5 +4,5 @@ using EduConnect.Domain.Entities;
 namespace EduConnect.Application.Abstractions.Interfaces.Persistence;
 public interface ITopicRepository : IGenericRepository<Topic>
 {
-    Task<IReadOnlyList<TopicWithRelatedCourses>> GetTopicWithRelatedCourses(Guid topicId);
+    Task<TopicWithRelatedCoursesDto?> GetTopicWithRelatedCourses(Guid topicId);
 }

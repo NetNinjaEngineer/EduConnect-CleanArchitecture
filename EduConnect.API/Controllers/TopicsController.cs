@@ -64,14 +64,14 @@ namespace EduConnect.API.Controllers
 
         [HttpGet]
         [Route("topicWithRelatedCourses/{topicId:guid}")]
-        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCourses>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<IReadOnlyList<TopicWithRelatedCourses>>> TopicWithRelatedCourses([FromRoute] Guid topicId)
+        [ProducesResponseType(typeof(TopicWithRelatedCoursesDto), StatusCodes.Status200OK)]
+        public async Task<ActionResult<TopicWithRelatedCoursesDto>> TopicWithRelatedCourses([FromRoute] Guid topicId)
         {
             return Ok(await mediator.Send(new GetTopicWithRelatedCoursesQuery() { TopicId = topicId }));
         }
 
         [HttpPut("{id:guid}")]
-        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCourses>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCoursesDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<Unit>> UpdateTopic(Guid id, TopicForUpdateDto updateModel)
         {
             await mediator.Send(new UpdateTopicCommand(id, updateModel));

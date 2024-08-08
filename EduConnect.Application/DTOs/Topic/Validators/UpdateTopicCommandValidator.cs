@@ -1,14 +1,19 @@
-﻿using FluentValidation;
+﻿using EduConnect.Application.Resources;
+using FluentValidation;
+using Microsoft.Extensions.Localization;
 
 namespace EduConnect.Application.DTOs.Topic.Validators;
 public sealed class UpdateTopicCommandValidator : AbstractValidator<TopicForUpdateDto>
 {
-    public UpdateTopicCommandValidator()
-    {
-        RuleFor(x => x.TopicName)
-            .NotEmpty().WithMessage("{PropertyName} cannot be empty.")
-            .NotNull().WithMessage("{PropertyName} is required.")
-            .MaximumLength(50).WithMessage("{PropertyName} must be no more than 50 characters long.");
+    private readonly IStringLocalizer<SharedResources> _localizer;
 
+    public UpdateTopicCommandValidator(IStringLocalizer<SharedResources> localizer)
+    {
+        _localizer = localizer;
+
+        RuleFor(x => x.TopicName)
+            .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
+            .NotNull().WithMessage(_localizer[SharedResourcesKeys.NotNull])
+            .MaximumLength(50).WithMessage(_localizer[SharedResourcesKeys.MaximumLength50]);
     }
 }

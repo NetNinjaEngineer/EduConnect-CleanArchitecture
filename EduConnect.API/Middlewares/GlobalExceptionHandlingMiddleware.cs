@@ -1,5 +1,7 @@
 ﻿using EduConnect.Application.Exceptions;
+using EduConnect.Application.Resources;
 using FluentValidation;
+using Microsoft.Extensions.Localization;
 using System.Net;
 using System.Text.Json;
 
@@ -9,11 +11,16 @@ namespace EduConnect.API.Middlewares
     {
         private readonly ILogger<GlobalExceptionHandlingMiddleware> _logger;
         private readonly RequestDelegate _requestDelegate;
+        private readonly IStringLocalizer<SharedResources> _localizer;
 
-        public GlobalExceptionHandlingMiddleware(ILogger<GlobalExceptionHandlingMiddleware> logger, RequestDelegate requestDelegate)
+        public GlobalExceptionHandlingMiddleware(
+            ILogger<GlobalExceptionHandlingMiddleware> logger,
+            RequestDelegate requestDelegate,
+            IStringLocalizer<SharedResources> localizer)
         {
             _logger = logger;
             _requestDelegate = requestDelegate;
+            _localizer = localizer;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -28,7 +35,7 @@ namespace EduConnect.API.Middlewares
             }
         }
 
-        private static async Task HandleExceptionAsync(Exception ex, HttpContext context)
+        private async Task HandleExceptionAsync(Exception ex, HttpContext context)
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -38,12 +45,12 @@ namespace EduConnect.API.Middlewares
                 case ValidationException validationException:
                     context.Response.StatusCode = (int)HttpStatusCode.UnprocessableEntity;
                     var errors = validationException.Errors.Select(x => x.ErrorMessage);
-                    errorDetails = new((int)HttpStatusCode.UnprocessableEntity, errors, "Validation errors occured !!!");
+                    errorDetails = new((int)HttpStatusCode.UnprocessableEntity, errors, _localizer[SharedResourcesKeys.ValidationErrors]);
                     break;
 
                 case NotFoundException:
                     context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                    errorDetails = new((int)HttpStatusCode.NotFound, [ex.Message], "Resource not found.");
+                    errorDetails = new((int)HttpStatusCode.NotFound, [ex.Message], _localizer[SharedResourcesKeys.ResourceNotFound]);
                     break;
 
                 default:
