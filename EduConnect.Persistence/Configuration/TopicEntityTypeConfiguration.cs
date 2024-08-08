@@ -17,6 +17,10 @@ namespace EduConnect.Persistence.Configuration
                 .HasColumnType("varchar").HasMaxLength(50)
                 .IsRequired();
 
+            builder.Property(x => x.TopicNameAr)
+                .HasMaxLength(50)
+                .IsRequired(true);
+
             builder.HasData(DatabaseHelper.GetTopics());
 
             builder.ToTable("Topics");

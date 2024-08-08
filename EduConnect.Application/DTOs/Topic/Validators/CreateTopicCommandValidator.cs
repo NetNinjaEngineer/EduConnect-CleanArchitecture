@@ -16,6 +16,11 @@ namespace EduConnect.Application.DTOs.Topic.Validators
                 .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
                 .NotNull().WithMessage(_localizer[SharedResourcesKeys.NotNull])
                 .MaximumLength(50).WithMessage(_localizer[SharedResourcesKeys.MaximumLength50]);
+
+            RuleFor(x => x.TopicNameAr)
+                .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
+                .NotNull().WithMessage(_localizer[SharedResourcesKeys.NotNull])
+                .MaximumLength(50).WithMessage(_localizer[SharedResourcesKeys.MaximumLength50]);
         }
     }
 }

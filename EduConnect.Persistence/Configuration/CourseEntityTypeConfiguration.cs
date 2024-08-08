@@ -15,6 +15,10 @@ namespace EduConnect.Persistence.Configuration
                 .HasMaxLength(50)
                 .IsRequired();
 
+            builder.Property(c => c.CourseNameAr)
+                .HasMaxLength(50)
+                .IsRequired(true);
+
             builder.HasOne(c => c.Topic)
                 .WithMany(t => t.Courses)
                 .HasForeignKey(c => c.TopicId)

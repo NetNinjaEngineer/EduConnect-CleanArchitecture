@@ -8,6 +8,7 @@ internal class CourseProfile : Profile
     public CourseProfile()
     {
         CreateMap<Course, CourseDto>()
-            .ForMember(dest => dest.TopicName, opt => opt.MapFrom(src => src.Topic!.TopicName));
+            .ForMember(dest => dest.TopicName, opt => opt.MapFrom(src => src.Topic!.GetLocalized()[0]))
+            .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.GetLocalized()[0]));
     }
 }

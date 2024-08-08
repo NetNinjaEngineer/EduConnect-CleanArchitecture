@@ -4,6 +4,7 @@ using EduConnect.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduConnect.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240808102445_AddedCultureFieldsCourseTopic")]
+    partial class AddedCultureFieldsCourseTopic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,6 @@ namespace EduConnect.Persistence.Migrations
                         .HasColumnType("varchar");
 
                     b.Property<string>("CourseNameAr")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -54,7 +56,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("ed9aafb1-872d-48a9-ade2-1a37b3a39f56"),
                             CourseName = "C# Basics",
-                            CourseNameAr = "أساسيات سي شارب",
                             Duration = 30,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -62,7 +63,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("4976c9f0-c558-41bf-be86-190249fac48d"),
                             CourseName = "Advanced C#",
-                            CourseNameAr = "سي شارب المتقدمة",
                             Duration = 40,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -70,7 +70,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("34f1d3b2-5e90-4873-a5c8-f9a3ae175b3b"),
                             CourseName = "JavaScript Essentials",
-                            CourseNameAr = "أساسيات جافا سكريبت",
                             Duration = 25,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -78,7 +77,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("4996138f-fd12-4126-9e29-6bbf7e0330bf"),
                             CourseName = "React Fundamentals",
-                            CourseNameAr = "أساسيات رياكت",
                             Duration = 35,
                             TopicId = new Guid("b16ea527-9f9c-4c58-8385-a2f69e5c83d9")
                         },
@@ -86,7 +84,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("0bca523a-285d-48fd-a805-7950f6bf676f"),
                             CourseName = "TypeScript for Beginners",
-                            CourseNameAr = "تايب سكريبت للمبتدئين",
                             Duration = 20,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -94,7 +91,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("375a26a9-a1ed-42e2-95e7-e9a30824d192"),
                             CourseName = "Python Programming",
-                            CourseNameAr = "برمجة بايثون",
                             Duration = 45,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -102,7 +98,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("102f8148-fcf8-4c1f-b513-21327622b8e1"),
                             CourseName = "Java Programming",
-                            CourseNameAr = "برمجة جافا",
                             Duration = 50,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -110,7 +105,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("5661c5b1-3fc1-4b84-99f5-898c6679fdf2"),
                             CourseName = "SQL Basics",
-                            CourseNameAr = "أساسيات إس كيو إل",
                             Duration = 30,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -118,7 +112,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("83c47415-c606-4cf5-a13f-d692e7326edd"),
                             CourseName = "NoSQL Databases",
-                            CourseNameAr = "قواعد بيانات نو إس كيو إل",
                             Duration = 40,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -126,7 +119,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("99eedb49-b4f1-4c13-a3ce-80059ab6f559"),
                             CourseName = "Data Structures",
-                            CourseNameAr = "هياكل البيانات",
                             Duration = 35,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -134,7 +126,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("808ca6a1-258e-4077-a443-af979e010d73"),
                             CourseName = "Algorithms",
-                            CourseNameAr = "الخوارزميات",
                             Duration = 40,
                             TopicId = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563")
                         },
@@ -142,7 +133,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("f8475a7e-7778-4ddf-8bf7-6879da2e2e02"),
                             CourseName = "Web Development",
-                            CourseNameAr = "تطوير الويب",
                             Duration = 50,
                             TopicId = new Guid("b16ea527-9f9c-4c58-8385-a2f69e5c83d9")
                         },
@@ -150,7 +140,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("e99c06c9-8605-4136-9c40-556bfd9ee2a2"),
                             CourseName = "Mobile App Development",
-                            CourseNameAr = "تطوير تطبيقات الجوال",
                             Duration = 45,
                             TopicId = new Guid("b9dd9a87-4852-434e-99dd-3103f7fba183")
                         },
@@ -158,7 +147,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("6bae2c61-0dd3-44e4-8c0c-e98add7f3948"),
                             CourseName = "Cloud Computing",
-                            CourseNameAr = "الحوسبة السحابية",
                             Duration = 30,
                             TopicId = new Guid("7db2ed45-a087-4e00-b804-b944f400f450")
                         },
@@ -166,7 +154,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("7496625c-9fad-4a07-87c6-98ba31c0064f"),
                             CourseName = "DevOps Practices",
-                            CourseNameAr = "ممارسات ديفوبس",
                             Duration = 35,
                             TopicId = new Guid("7db2ed45-a087-4e00-b804-b944f400f450")
                         },
@@ -174,7 +161,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("bf1dcec8-b9fe-40f0-b847-2a142fc320f3"),
                             CourseName = "Cybersecurity Basics",
-                            CourseNameAr = "أساسيات الأمن السيبراني",
                             Duration = 25,
                             TopicId = new Guid("62841cba-863b-4816-9366-e789646ca43e")
                         },
@@ -182,7 +168,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("1e2bac13-26be-4ff0-9716-ea95970a7bb7"),
                             CourseName = "Machine Learning",
-                            CourseNameAr = "تعلم الآلة",
                             Duration = 50,
                             TopicId = new Guid("71fd7466-e4d4-41f6-ace8-ed67ea8fafcf")
                         },
@@ -190,7 +175,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("aa25d7c5-5f48-40b3-be6e-4bf6eb577f7a"),
                             CourseName = "Artificial Intelligence",
-                            CourseNameAr = "الذكاء الاصطناعي",
                             Duration = 55,
                             TopicId = new Guid("71fd7466-e4d4-41f6-ace8-ed67ea8fafcf")
                         },
@@ -198,7 +182,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("a4207bab-0908-4ff5-878c-0ae69dba6457"),
                             CourseName = "Blockchain Technology",
-                            CourseNameAr = "تكنولوجيا البلوكشين",
                             Duration = 40,
                             TopicId = new Guid("df8d86f9-69d9-4eda-9fc4-aa8725c7a47b")
                         },
@@ -206,7 +189,6 @@ namespace EduConnect.Persistence.Migrations
                         {
                             Id = new Guid("1ab8063b-dc0f-43a6-9109-ed1b6770c82d"),
                             CourseName = "Internet of Things (IoT)",
-                            CourseNameAr = "إنترنت الأشياء",
                             Duration = 35,
                             TopicId = new Guid("5393a6fe-5c8b-42af-a453-2af2c64f5a35")
                         });
@@ -350,7 +332,6 @@ namespace EduConnect.Persistence.Migrations
                         .HasColumnType("varchar");
 
                     b.Property<string>("TopicNameAr")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -362,62 +343,52 @@ namespace EduConnect.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9b0418c2-d8c8-46fb-bd0d-0094f83ad563"),
-                            TopicName = "Programming",
-                            TopicNameAr = "البرمجة"
+                            TopicName = "Programming"
                         },
                         new
                         {
                             Id = new Guid("b16ea527-9f9c-4c58-8385-a2f69e5c83d9"),
-                            TopicName = "Web Development",
-                            TopicNameAr = "تطوير الويب"
+                            TopicName = "Web Development"
                         },
                         new
                         {
                             Id = new Guid("b9dd9a87-4852-434e-99dd-3103f7fba183"),
-                            TopicName = "Mobile App Development",
-                            TopicNameAr = "تطوير تطبيقات الموبايل"
+                            TopicName = "Mobile App Development"
                         },
                         new
                         {
                             Id = new Guid("7db2ed45-a087-4e00-b804-b944f400f450"),
-                            TopicName = "Cloud Computing",
-                            TopicNameAr = "الحوسبة السحابية"
+                            TopicName = "Cloud Computing"
                         },
                         new
                         {
                             Id = new Guid("b8c0db6a-716d-4004-9c89-0e7cf1ba790c"),
-                            TopicName = "DevOps Practices",
-                            TopicNameAr = "ممارسات ديفوبس"
+                            TopicName = "DevOps Practices"
                         },
                         new
                         {
                             Id = new Guid("62841cba-863b-4816-9366-e789646ca43e"),
-                            TopicName = "Cybersecurity",
-                            TopicNameAr = "الأمن السيبراني"
+                            TopicName = "Cybersecurity"
                         },
                         new
                         {
                             Id = new Guid("096acc69-09a4-4f36-84ff-322e9846ad54"),
-                            TopicName = "Machine Learning",
-                            TopicNameAr = "تعلم الآلة"
+                            TopicName = "Machine Learning"
                         },
                         new
                         {
                             Id = new Guid("71fd7466-e4d4-41f6-ace8-ed67ea8fafcf"),
-                            TopicName = "Artificial Intelligence",
-                            TopicNameAr = "الذكاء الاصطناعي"
+                            TopicName = "Artificial Intelligence"
                         },
                         new
                         {
                             Id = new Guid("df8d86f9-69d9-4eda-9fc4-aa8725c7a47b"),
-                            TopicName = "Blockchain Technology",
-                            TopicNameAr = "تكنولوجيا البلوكشين"
+                            TopicName = "Blockchain Technology"
                         },
                         new
                         {
                             Id = new Guid("5393a6fe-5c8b-42af-a453-2af2c64f5a35"),
-                            TopicName = "Internet of Things (IoT)",
-                            TopicNameAr = "إنترنت الأشياء"
+                            TopicName = "Internet of Things (IoT)"
                         });
                 });
 

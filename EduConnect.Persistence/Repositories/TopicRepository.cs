@@ -11,17 +11,18 @@ public sealed class TopicRepository(
 {
     public async Task<TopicWithRelatedCoursesDto?> GetTopicWithRelatedCourses(Guid topicId)
     {
+        var isArabic = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName.ToLower().Equals("ar");
         var specification = new GetAllTopicsWithCoursesSpecification();
         var query = await _context.Topics
             .Where(x => x.Id == topicId)
             .Select(x => new TopicWithRelatedCoursesDto
             {
                 Id = x.Id,
-                TopicName = x.TopicName,
+                TopicName = isArabic ? x.TopicNameAr : x.TopicName,
                 Courses = x.Courses.Select(c => new CourseForListDto
                 {
                     Id = c.Id,
-                    CourseName = c.CourseName,
+                    CourseName = isArabic ? c.CourseNameAr : c.CourseName,
                     Duration = c.Duration
                 })
             }).FirstOrDefaultAsync();
