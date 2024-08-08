@@ -1,10 +1,18 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 
 namespace EduConnect.API.Localization;
 public class JsonStringLocalizer : IStringLocalizer
 {
     private readonly JsonSerializer _serializer = new();
+    private readonly IDistributedCache _cache;
+
+    public JsonStringLocalizer(IDistributedCache cache)
+    {
+        _cache = cache;
+    }
+
     public LocalizedString this[string name]
     {
         get
@@ -50,8 +58,23 @@ public class JsonStringLocalizer : IStringLocalizer
     {
         var filePath = $"Resources/{Thread.CurrentThread.CurrentCulture.Name}.json";
         var fullFilePath = Path.GetFullPath(filePath);
+        if (File.Exists(fullFilePath))
+        {
+            var cacheKey = $"locale_{Thread.CurrentThread.CurrentCulture.Name}_{key}";
+            var cacheValue = _cache.GetString(cacheKey);
+            if (string.IsNullOrEmpty(cacheValue))
+            {
+                var result = GetValueFromJson(key, fullFilePath);
+                _cache.SetString(cacheKey, result);
 
-        return !File.Exists(fullFilePath) ? string.Empty : GetValueFromJson(key, fullFilePath);
+                return result;
+            }
+
+
+            return cacheValue;
+        }
+
+        return string.Empty;
     }
 
     private string GetValueFromJson(string propertyName, string filePath)

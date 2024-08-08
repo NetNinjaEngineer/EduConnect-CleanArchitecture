@@ -18,6 +18,7 @@ public static class ApplicationServicesExtensions
             .AddApplicationPart()
             .AddIdentityPart()
             .AddInfrastructurePart()
+            .AddDistributedMemoryCache()
             .AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>()
             .AddLocalization(opt => opt.ResourcesPath = $"{Directory.GetCurrentDirectory()}/Resources")
             .Configure<RequestLocalizationOptions>(options =>
