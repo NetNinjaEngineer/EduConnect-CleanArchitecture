@@ -1,5 +1,5 @@
 ﻿using EduConnect.Application.Exceptions;
-using EduConnect.Application.Localization;
+using EduConnect.Application.Helpers;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 using System.Net;
@@ -11,12 +11,12 @@ namespace EduConnect.API.Middlewares
     {
         private readonly ILogger<GlobalExceptionHandlingMiddleware> _logger;
         private readonly RequestDelegate _requestDelegate;
-        private readonly IStringLocalizer<SharedResources> _localizer;
+        private readonly IStringLocalizer<GlobalExceptionHandlingMiddleware> _localizer;
 
         public GlobalExceptionHandlingMiddleware(
             ILogger<GlobalExceptionHandlingMiddleware> logger,
             RequestDelegate requestDelegate,
-            IStringLocalizer<SharedResources> localizer)
+            IStringLocalizer<GlobalExceptionHandlingMiddleware> localizer)
         {
             _logger = logger;
             _requestDelegate = requestDelegate;

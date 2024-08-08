@@ -2,7 +2,7 @@
 using EduConnect.Application.Abstractions.Interfaces.Persistence;
 using EduConnect.Application.Exceptions;
 using EduConnect.Application.Features.Topics.Requests.Commands;
-using EduConnect.Application.Localization;
+using EduConnect.Application.Helpers;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Localization;
@@ -11,7 +11,7 @@ namespace EduConnect.Application.DTOs.Topic.Handlers.Commands;
 public sealed class UpdateTopicCommandHandler(
     IMapper mapper,
     IUnitOfWork unitOfWork,
-    IStringLocalizer<SharedResources> localizer,
+    IStringLocalizer<UpdateTopicCommandHandler> localizer,
     IValidator<TopicForUpdateDto> validator
     ) : IRequestHandler<UpdateTopicCommand, Unit>
 {

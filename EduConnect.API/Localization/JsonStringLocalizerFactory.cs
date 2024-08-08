@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 
-namespace EduConnect.Application.Localization;
+namespace EduConnect.API.Localization;
 public class JsonStringLocalizerFactory : IStringLocalizerFactory
 {
     public IStringLocalizer Create(Type resourceSource)

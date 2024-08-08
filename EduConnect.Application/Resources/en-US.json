@@ -1,8 +1,0 @@
-{
-  "MaximumLength50": "{PropertyName} must be no more than 50 characters long.",
-  "ResourceNotFound": "Resource not found.",
-  "TopicNotFoundMessage": "The topic with id: '{0}' was not found.",
-  "ValidationErrors": "Validation errors occured !!!",
-  "NotEmpty": "{PropertyName} cannot be empty.",
-  "NotNull": "{PropertyName} is required."
-}

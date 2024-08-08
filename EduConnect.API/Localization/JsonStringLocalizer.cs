@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 
-namespace EduConnect.Application.Localization;
+namespace EduConnect.API.Localization;
 public class JsonStringLocalizer : IStringLocalizer
 {
     private readonly JsonSerializer _serializer = new();
@@ -19,18 +19,17 @@ public class JsonStringLocalizer : IStringLocalizer
         get
         {
             var actualValue = this[name];
-            return !actualValue.ResourceNotFound
-                ? new LocalizedString(name, string.Format(actualValue.Value, arguments))
-                : actualValue;
+            if (!actualValue.ResourceNotFound)
+                return new LocalizedString(name, string.Format(actualValue.Value, arguments));
+            return actualValue;
         }
     }
 
     public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
     {
         var filePath = $"Resources/{Thread.CurrentThread.CurrentCulture.Name}.json";
-        var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), filePath);
 
-        using FileStream stream = new(fullFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+        using FileStream stream = new(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
         using StreamReader streamReader = new(stream);
         using JsonTextReader reader = new(streamReader);
 
@@ -50,7 +49,7 @@ public class JsonStringLocalizer : IStringLocalizer
     private string GetString(string key)
     {
         var filePath = $"Resources/{Thread.CurrentThread.CurrentCulture.Name}.json";
-        var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), filePath);
+        var fullFilePath = Path.GetFullPath(filePath);
 
         return !File.Exists(fullFilePath) ? string.Empty : GetValueFromJson(key, fullFilePath);
     }

@@ -1,11 +1,7 @@
+using EduConnect.API.Extensions;
 using EduConnect.API.Middlewares;
-using EduConnect.Application;
-using EduConnect.Identity;
-using EduConnect.Infrastructure;
-using EduConnect.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Text.Json.Serialization;
 
@@ -21,26 +17,18 @@ builder.Services.AddControllers(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services
-    .AddPersistencePart(builder.Configuration)
-    .AddApplicationPart()
-    .AddInfrastructurePart()
-    .AddIdentityPart();
 
-builder.Services.AddLocalization();
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
-using var scope = app.Services.CreateScope();
-var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-await dbContext.Database.MigrateAsync();
+
+app.ConfigureWebApplication();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseLocalizationOptions();
 
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 

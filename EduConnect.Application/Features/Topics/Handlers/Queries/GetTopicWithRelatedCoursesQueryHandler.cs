@@ -2,7 +2,7 @@
 using EduConnect.Application.Abstractions.Interfaces.Persistence.Models;
 using EduConnect.Application.Exceptions;
 using EduConnect.Application.Features.Topics.Requests.Queries;
-using EduConnect.Application.Localization;
+using EduConnect.Application.Helpers;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
@@ -11,10 +11,10 @@ public sealed class GetTopicWithRelatedCoursesQueryHandler
     : IRequestHandler<GetTopicWithRelatedCoursesQuery, TopicWithRelatedCoursesDto>
 {
     private readonly ITopicRepository _topicRepository;
-    private readonly IStringLocalizer<SharedResources> _localizer;
+    private readonly IStringLocalizer<GetTopicWithRelatedCoursesQueryHandler> _localizer;
 
     public GetTopicWithRelatedCoursesQueryHandler(
-        ITopicRepository topicRepository, IStringLocalizer<SharedResources> localizer)
+        ITopicRepository topicRepository, IStringLocalizer<GetTopicWithRelatedCoursesQueryHandler> localizer)
     {
         _topicRepository = topicRepository;
         _localizer = localizer;
