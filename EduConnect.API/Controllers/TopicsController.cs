@@ -33,7 +33,7 @@ namespace EduConnect.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(TopicDto), StatusCodes.Status201Created)]
-        public async Task<ActionResult<IReadOnlyList<TopicDto>>> CreateNewTopic([FromBody] TopicForCreationDto model)
+        public async Task<ActionResult<TopicDto>> CreateNewTopic([FromBody] TopicForCreationDto model)
         {
             var createTopicCommand = new CreateTopicCommand { Topic = model };
             Result<TopicDto> createTopicResult = await mediator.Send(createTopicCommand);
@@ -54,15 +54,6 @@ namespace EduConnect.API.Controllers
             return Ok(pagedResult.Value);
         }
 
-        [HttpDelete("{id:guid}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Unit>> DeleteTopic([FromRoute] Guid id)
-        {
-            await mediator.Send(new DeleteTopicCommand(id));
-            return NoContent();
-        }
-
         [HttpGet]
         [Route("topicWithRelatedCourses/{topicId:guid}")]
         [ProducesResponseType(typeof(TopicWithRelatedCoursesDto), StatusCodes.Status200OK)]
@@ -72,10 +63,20 @@ namespace EduConnect.API.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        [ProducesResponseType(typeof(IReadOnlyList<TopicWithRelatedCoursesDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Unit>> UpdateTopic(Guid id, TopicForUpdateDto updateModel)
         {
             await mediator.Send(new UpdateTopicCommand(id, updateModel));
+            return NoContent();
+        }
+
+        [HttpDelete("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<Unit>> DeleteTopic([FromRoute] Guid id)
+        {
+            await mediator.Send(new DeleteTopicCommand(id));
             return NoContent();
         }
     }

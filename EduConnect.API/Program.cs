@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new ProducesResponseTypeAttribute((int)HttpStatusCode.InternalServerError));
+    options.Filters.Add(new ProducesResponseTypeAttribute((int)HttpStatusCode.BadRequest));
+    options.Filters.Add(new ProducesResponseTypeAttribute((int)HttpStatusCode.UnprocessableEntity));
     options.OutputFormatters.RemoveType<StringOutputFormatter>();
 })
     .AddJsonOptions(options =>
