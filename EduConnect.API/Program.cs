@@ -1,5 +1,5 @@
 using EduConnect.API.Extensions;
-using EduConnect.API.Middlewares;
+using EduConnect.Application.Middlewares;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Net;
