@@ -68,6 +68,8 @@ public class CoursesController : ControllerBase
     [Route("getAllCourses")]
     public async Task<ActionResult<IReadOnlyList<CourseForListDto>>> GetAllCoursesWithoutPagination()
         => Ok(await _mediator.Send(new GetCoursesListQuery()));
+    
+    
 
 
 }
