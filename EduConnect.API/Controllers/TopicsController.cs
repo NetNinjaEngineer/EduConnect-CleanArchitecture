@@ -4,6 +4,7 @@ using EduConnect.Application.DTOs.Topic;
 using EduConnect.Application.Features.Topics.Requests.Commands;
 using EduConnect.Application.Features.Topics.Requests.Queries;
 using EduConnect.Application.Helpers;
+using EduConnect.Application.RequestParameters.Topic;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;

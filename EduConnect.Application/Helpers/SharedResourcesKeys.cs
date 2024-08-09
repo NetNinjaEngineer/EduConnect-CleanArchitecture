@@ -8,5 +8,4 @@ public static class SharedResourcesKeys
     public const string NotEmpty = "notEmpty";
     public const string NotNull = "notNull";
     public const string MaximumLength50 = "maximumLength50";
-
 }

@@ -1,6 +1,7 @@
 ﻿using EduConnect.Application.DTOs.Course;
 using EduConnect.Application.Features.Courses.Requests.Queries;
 using EduConnect.Application.Helpers;
+using EduConnect.Application.RequestParameters.Course;
 using EduConnect.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

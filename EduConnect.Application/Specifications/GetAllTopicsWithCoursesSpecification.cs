@@ -1,4 +1,4 @@
-﻿using EduConnect.Application.Helpers;
+﻿using EduConnect.Application.RequestParameters.Topic;
 using EduConnect.Domain.Entities;
 
 namespace EduConnect.Application.Specifications;
@@ -16,15 +16,15 @@ public class GetAllTopicsWithCoursesSpecification : BaseSpecification<Topic>
     {
         Includes.Add(x => x.Courses);
 
-        if (!string.IsNullOrEmpty(topicRequestParams.Sort))
+        if (topicRequestParams.OrderingOptions is not null)
         {
-            switch (topicRequestParams.Sort)
+            switch (topicRequestParams.OrderingOptions)
             {
-                case "NameAsc":
+                case TopicOrderingOptions.NameAsc:
                     AddOrderBy(x => x.TopicName!);
                     break;
 
-                case "NameDesc":
+                case TopicOrderingOptions.NameDesc:
                     AddOrderByDescending(x => x.TopicName!);
                     break;
 

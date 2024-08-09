@@ -27,7 +27,7 @@ public sealed class GetAllTopicsWithParamsQueryHandler(
         var specificationCountWithFilteration = new GetTopicsCountWithFilterationSpecification(request.TopicRequestParams);
         var count = await unitOfWork.Repository<Topic>()!.CountWithSpecificationAsync(specificationCountWithFilteration);
 
-        return Result<Pagination<TopicDto>>.Success(new Pagination<TopicDto>(
+        return Result<Pagination<TopicDto>>.Success(Pagination<TopicDto>.ToPaginatedResult(
             request.TopicRequestParams.PageNumber,
             request.TopicRequestParams.PageSize,
             count,

@@ -1,4 +1,4 @@
-﻿using EduConnect.Application.Helpers;
+﻿using EduConnect.Application.RequestParameters.Topic;
 using EduConnect.Domain.Entities;
 
 namespace EduConnect.Application.Specifications;

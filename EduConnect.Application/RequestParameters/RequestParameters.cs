@@ -1,23 +1,26 @@
-﻿namespace EduConnect.Application.Helpers;
+﻿namespace EduConnect.Application.RequestParameters;
 public abstract class RequestParameters
 {
+    #region Fields
     private const int _maxPageSize = 50;
-    public int PageNumber { get; set; } = 1;
     private int _pageSize = 10;
+    private string? searchTerm;
+    #endregion
+
+    #region Properities
+    public int PageNumber { get; set; } = 1;
 
     public int PageSize
     {
         get { return _pageSize; }
-        set { _pageSize = (value > _maxPageSize) ? _pageSize : value; }
+        set { _pageSize = value > _maxPageSize ? _pageSize : value; }
     }
 
-    private string? searchTerm;
 
     public string? SearchTerm
     {
         get { return searchTerm; }
         set { searchTerm = value!.ToLower(); }
     }
-
-    public string? Sort { get; set; }
+    #endregion
 }

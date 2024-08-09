@@ -1,4 +1,4 @@
-﻿using EduConnect.Application.Helpers;
+﻿using EduConnect.Application.RequestParameters.Course;
 using EduConnect.Domain.Entities;
 
 namespace EduConnect.Application.Specifications;
@@ -15,19 +15,31 @@ internal class GetCoursesWithTopicsSpecification : BaseSpecification<Course>
     {
         Includes.Add(x => x.Topic!);
 
-        if (!string.IsNullOrEmpty(parameters.Sort))
+        if (parameters.OrderingOptions is not null)
         {
-            switch (parameters.Sort)
+            switch (parameters.OrderingOptions)
             {
-                case "DurationAsc":
+                case CourseOrderingOptions.DurationAsc:
                     AddOrderBy(c => c.Duration);
                     break;
 
-                case "DurationDesc":
+                case CourseOrderingOptions.DurationDesc:
                     AddOrderByDescending(c => c.Duration);
                     break;
 
+                case CourseOrderingOptions.NameAscDurationDesc:
+                    AddOrderBy(c => c.CourseName!);
+                    AddOrderByDescending(c => c.Duration);
+                    break;
+
+                case CourseOrderingOptions.NameDescDurationAsc:
+                    AddOrderByDescending(c => c.CourseName!);
+                    AddOrderBy(c => c.Duration);
+                    break;
+
+
                 default:
+                    AddOrderBy(c => c.Duration);
                     break;
             }
         }

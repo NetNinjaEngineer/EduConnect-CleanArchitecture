@@ -15,4 +15,7 @@ public class Pagination<T>
             TotalPages = (int)Math.Ceiling(count / (double)pageSize)
         };
     }
+
+    public static Pagination<T> ToPaginatedResult(int pageNumber, int pageSize, int count, IReadOnlyList<T> data)
+        => new(pageNumber, pageSize, count, data);
 }
